@@ -16,7 +16,7 @@ module.exports = {
         'ecmaVersion': 2018,
         'sourceType': 'module',
         'project': './tsconfig.json',
-        'extraFileExtensions': [ '.d.ts', 'tsx' ],
+        'extraFileExtensions': ['.d.ts', 'tsx'],
         'ecmaFeatures': { 'jsx': true },
     },
     'plugins': [
@@ -85,19 +85,19 @@ module.exports = {
                 'message': 'Avoid commiting fit, use it instead.',
             },
         ],
-        'space-before-blocks': [ 'error', 'always' ],
-        'spaced-comment': [ 'error', 'always', {
+        'space-before-blocks': ['error', 'always'],
+        'spaced-comment': ['error', 'always', {
             'line': {
-                'markers': [ '/' ],
-                'exceptions': [ '-', '+' ],
+                'markers': ['/'],
+                'exceptions': ['-', '+'],
             },
             'block': {
-                'markers': [ '!' ],
-                'exceptions': [ '*' ],
+                'markers': ['!'],
+                'exceptions': ['*'],
                 'balanced': true,
             },
-        } ],
-        'space-infix-ops': [ 'error', { 'int32Hint': false } ],
+        }],
+        'space-infix-ops': ['error', { 'int32Hint': false }],
         'object-property-newline': 'error',
         'key-spacing': [
             'error',
@@ -117,7 +117,7 @@ module.exports = {
             'error',
             'always',
         ],
-        'object-curly-newline': [ 'error', {
+        'object-curly-newline': ['error', {
             'ObjectExpression': {
                 'multiline': true,
                 'minProperties': 2,
@@ -134,11 +134,11 @@ module.exports = {
                 'multiline': true,
                 'minProperties': 2,
             },
-        } ],
+        }],
         'no-unused-vars': 'off',
         'unused-imports/no-unused-imports': 'error',
-        'no-else-return': [ 'error' ],
-        'eqeqeq': [ 'error', 'always', { 'null': 'never' } ],
+        'no-else-return': ['error'],
+        'eqeqeq': ['error', 'always', { 'null': 'never' }],
         '@typescript-eslint/no-unnecessary-type-arguments': 'error',
         '@typescript-eslint/no-unnecessary-qualifier': 'error',
         '@typescript-eslint/no-unnecessary-type-constraint': 'error',
@@ -148,7 +148,7 @@ module.exports = {
         '@typescript-eslint/type-annotation-spacing': 'error',
         '@typescript-eslint/prefer-string-starts-ends-with': 'error',
         '@typescript-eslint/prefer-enum-initializers': 'error',
-        '@typescript-eslint/explicit-member-accessibility': [ 'error',
+        '@typescript-eslint/explicit-member-accessibility': ['error',
             { overrides: { constructors: 'no-public' } },
         ],
         '@typescript-eslint/member-ordering': [
@@ -207,5 +207,5 @@ module.exports = {
         'react/jsx-one-expression-per-line': 'error',
         'react/jsx-pascal-case': 'error',
         'react/jsx-tag-spacing': 'error',
-    }
+    },
 };

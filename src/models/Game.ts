@@ -1,3 +1,8 @@
+import { makeAutoObservable } from 'mobx';
+
+import { Job } from './Job';
+import { Resources } from './Resources';
+
 const WORLD_DELTA_MINIMUM = 1000;
 
 export class Game {
@@ -5,8 +10,23 @@ export class Game {
     private _lastFrame: number | null = null;
     private _gameDelta: number = 0;
 
+    private _resources: Resources;
+    private _job: Job | null = null;
+
     constructor() {
+        this._resources = new Resources();
+
         this.start();
+
+        makeAutoObservable(this);
+    }
+
+    public get resources() {
+        return this._resources;
+    }
+
+    public get job() {
+        return this._job;
     }
 
     public start() {
