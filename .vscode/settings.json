@@ -1,0 +1,46 @@
+{
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.codeActionsOnSave.mode": "all",
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "html.format.wrapAttributes": "force-aligned",
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.preferences.quoteStyle": "single",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "words",
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 1,
+    "importSorter.importStringConfiguration.trailingComma": "multiLine",
+    "importSorter.generalConfiguration.sortOnBeforeSave": true,
+    "importSorter.importStringConfiguration.tabType": "space",
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+        {
+            "type": "importMember",
+            "regex": "^$",
+            "orderLevel": 5,
+            "disableSort": true
+        },
+        {
+            "regex": "^[@]",
+            "orderLevel": 10
+        },
+        {
+            "regex": "^[^.@]",
+            "orderLevel": 15
+        },
+        {
+            "regex": "^[.]",
+            "orderLevel": 30
+        }
+    ],
+    "files.insertFinalNewline": true
+}
