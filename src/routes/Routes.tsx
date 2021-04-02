@@ -4,8 +4,13 @@ import {
     Switch,
 } from 'react-router-dom';
 
+import { Home } from './Home';
+
 export const Routes = observer(() => {
     return <Switch>
-        <Route path="/home" />
+        <Route
+            path="*"
+            component={Home}
+        />
     </Switch>;
 });
