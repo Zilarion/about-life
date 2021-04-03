@@ -7,9 +7,9 @@ import { Job } from '../models/Job';
 import styled from '../themed-components';
 
 const JobWrapper = styled.div`
-    display: flex;
-    gap: ${p => p.theme.spacing(2)}px;
-    padding: ${p => p.theme.spacing(2)}px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: ${p => p.theme.spacing(2)}px;
 `;
 
 export const ChooseJob = observer(() => {
