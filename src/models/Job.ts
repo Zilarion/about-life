@@ -1,4 +1,4 @@
-interface JobProps {
+export interface JobProps {
     name: string;
     income: number;
     interest: number;
@@ -12,7 +12,7 @@ export class Job {
     constructor({
         name,
         income,
-        interest
+        interest,
     }: JobProps) {
         this._name = name;
         this._income = income;
