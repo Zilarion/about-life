@@ -29,6 +29,10 @@ export class Game {
         return this._job;
     }
 
+    public setJob(newJob: Job) {
+        this._job = newJob;
+    }
+
     public start() {
         this._animationFrameId = window.requestAnimationFrame(this._tick);
     }

@@ -1,52 +1,74 @@
 import {
-    Box,
+    Button,
     Card,
+    CardActions,
     CardContent,
     Typography,
 } from '@material-ui/core';
-import { observer } from 'mobx-react-lite';
 
-import { intl } from '../intl';
-import { Job } from '../models/Job';
+import {
+    IncomeLevel,
+    InterestLevel,
+} from '../data/jobs';
+import { JobProps } from '../models/Job';
+
+const incomeToString: Record<IncomeLevel, string> = {
+    [IncomeLevel.BarelyPaid]: 'badly',
+    [IncomeLevel.LowPay]: 'low',
+    [IncomeLevel.AveragePay]: 'average',
+    [IncomeLevel.GreatPay]: 'great',
+    [IncomeLevel.IncrediblePay]: 'incredibly well',
+};
+
+const interestToString: Record<InterestLevel, string> = {
+    [InterestLevel.Love]: 'love',
+    [InterestLevel.Like]: 'like',
+    [InterestLevel.Unbiased]: 'think is ok',
+    [InterestLevel.Dislike]: 'dislike',
+    [InterestLevel.Hate]: 'hate',
+};
 
 interface JobDescriptionProps {
-    job: Job | null;
+    job: JobProps;
+    onClick: (job: JobProps) => void;
 }
+export const JobDescription = ({
+    job,
+    onClick,
+}: JobDescriptionProps) => {
+    const {
+        name,
+        interest,
+        income,
+    } = job;
 
-export const JobDescription = observer(({ job }: JobDescriptionProps) => {
-    const jobName = job?.name ?? 'Unemployed hobo';
-    const jobIncome = job?.income ?? 0;
-
+    const payDescription = incomeToString[income];
+    const interestDescription = interestToString[interest];
     return <Card variant="outlined">
         <CardContent>
-            <Typography
-                color="textSecondary"
-                gutterBottom
-                variant="h5"
-                component="h2"
-            >
-                About: work
-            </Typography>
-            <Typography component="div">
-                <Box>
-                    Your job
-                </Box>
-                <Box fontWeight="bold">
-                    {jobName}
-                </Box>
-                <Box>
-                    Your monthly income
-                </Box>
-                <Box fontWeight="bold">
-                    {intl.formatNumber(
-                        jobIncome,
-                        {
-                            style: 'currency',
-                            currency: 'USD',
-                        },
-                    )}
-                </Box>
+            <Typography>
+                {'A job in '}
+                <strong>
+                    {name}
+                </strong>
+                {' that you '}
+                <strong>
+                    {interestDescription}
+                </strong>
+                {' and pays '}
+                <strong>
+                    {payDescription}
+                </strong>
             </Typography>
         </CardContent>
+        <CardActions>
+            <Button
+                variant="outlined"
+                size="small"
+                onClick={() => onClick(job)}
+            >
+                Choose this job
+            </Button>
+        </CardActions>
     </Card>;
-});
+};

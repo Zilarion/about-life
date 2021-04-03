@@ -1,7 +1,8 @@
 import { observer } from 'mobx-react-lite';
 
-import { JobDescription } from '../components/JobDescription';
+import { JobCard } from '../components/JobCard';
 import { useGame } from '../hooks/useGame';
+import { ChooseJob } from '../view/ChooseJob';
 
 export const Home = observer(() => {
     const {
@@ -9,6 +10,7 @@ export const Home = observer(() => {
         resources,
     } = useGame();
     return <div>
-        <JobDescription job={job} />
+        <JobCard job={job} />
+        {job == null && <ChooseJob />}
     </div>;
 });
