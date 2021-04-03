@@ -8,26 +8,24 @@ import { observer } from 'mobx-react-lite';
 
 import { intl } from '../intl';
 import { Job } from '../models/Job';
+import styled from '../themed-components';
 
-interface JobDescriptionProps {
+interface JobCardProps {
     job: Job | null;
 }
 
-export const JobCard = observer(({ job }: JobDescriptionProps) => {
+const ContentWrapper = styled(Typography)`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+`;
+
+export const JobCard = observer(({ job }: JobCardProps) => {
     const jobName = job?.name ?? 'Unemployed hobo';
     const jobIncome = job?.income ?? 0;
 
     return <Card variant="outlined">
         <CardContent>
-            <Typography
-                color="textSecondary"
-                gutterBottom
-                variant="h5"
-                component="h2"
-            >
-                About: work
-            </Typography>
-            <Typography component="div">
+            <ContentWrapper>
                 <Box>
                     Your job
                 </Box>
@@ -46,7 +44,7 @@ export const JobCard = observer(({ job }: JobDescriptionProps) => {
                         },
                     )}
                 </Box>
-            </Typography>
+            </ContentWrapper>
         </CardContent>
     </Card>;
 });
