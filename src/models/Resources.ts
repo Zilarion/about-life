@@ -15,4 +15,16 @@ export class Resources {
     public get happiness() {
         return this._happiness;
     }
+
+    public addCash(value: number) {
+        this._cash += value;
+    }
+
+    public removeCash(value: number) {
+        this._cash -= value;
+    }
+
+    public addHappiness(value: number) {
+        this._happiness += value;
+    }
 }

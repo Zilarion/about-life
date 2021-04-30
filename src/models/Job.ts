@@ -1,5 +1,6 @@
+import { makeAutoObservable } from 'mobx';
+
 export interface JobProps {
-    name: string;
     income: number;
     interest: number;
 }
@@ -7,25 +8,30 @@ export interface JobProps {
 export class Job {
     private _interest: number;
     private _income: number;
-    private _name: string;
 
     constructor({
-        name,
         income,
         interest,
     }: JobProps) {
-        this._name = name;
         this._income = income;
         this._interest = interest;
+
+        makeAutoObservable(this);
     }
 
-    public get name() {
-        return this._name;
-    }
     public get income() {
         return this._income;
     }
+
+    public setIncome(income: number) {
+        this._income = income;
+    }
+
     public get interest() {
         return this._interest;
+    }
+
+    public setInterest(interest: number) {
+        this._interest = interest;
     }
 }

@@ -3,6 +3,7 @@ const merge = require('webpack-merge').merge;
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const CSSLoader = require('./.webpack/css-loader.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BabelLoader = require('./.webpack/babel-loader.config');
 
 const PATH = {
     src: path.join(__dirname, './src'),
@@ -22,6 +23,7 @@ const base = {
     module: {
         rules: [
             CSSLoader,
+            BabelLoader,
             // FIXME: Temporarily required until webpack updates their dependencies.
             {
                 test: /\.m?js/,

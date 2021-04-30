@@ -7,21 +7,31 @@ import {
 import { observer } from 'mobx-react-lite';
 
 import { Resources } from '../models/Resources';
+import { formatNumber } from '../util/formatNumber';
 
 interface ResourceCardProps {
     resources: Resources;
 }
 
-export const ResourceCard = observer(({ resources: { cash } }: ResourceCardProps) => {
+export const ResourceCard = observer(({
+    resources: {
+        cash, happiness,
+    },
+}: ResourceCardProps) => {
     return <Card variant="outlined">
         <CardContent>
             <Typography component="div">
                 <Box>
-                    You have
+                    Cash
                 </Box>
                 <Box fontWeight="bold">
-                    $
-                    {cash}
+                    {formatNumber(cash)}
+                </Box>
+                <Box>
+                    Happiness
+                </Box>
+                <Box fontWeight="bold">
+                    {happiness}
                 </Box>
             </Typography>
         </CardContent>
