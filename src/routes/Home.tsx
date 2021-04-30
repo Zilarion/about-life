@@ -1,11 +1,10 @@
+import styled from '@emotion/styled';
 import { observer } from 'mobx-react-lite';
 
+import { Actions } from '../components/Actions';
 import { JobCard } from '../components/JobCard';
 import { ResourceCard } from '../components/ResourceCard';
 import { useGame } from '../hooks/useGame';
-import styled from '../themed-components';
-import { ChooseJob } from '../view/ChooseJob';
-import { JobActions } from './JobActions';
 
 const HomeWrapper = styled.div`
     display: grid;
@@ -32,7 +31,6 @@ export const Home = observer(() => {
             <JobCard job={job} />
             <ResourceCard resources={resources} />
         </Sidebar>
-        {job == null && <ChooseJob />}
-        {job && <JobActions />}
+        <Actions />
     </HomeWrapper>;
 });

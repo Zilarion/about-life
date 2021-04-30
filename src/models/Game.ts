@@ -1,5 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
+import { Actions } from './Actions';
 import { Job } from './Job';
 import { Resources } from './Resources';
 
@@ -11,10 +12,16 @@ export class Game {
     private _gameDelta: number = 0;
 
     private _resources: Resources;
-    private _job: Job | null = null;
+    private _job: Job;
+    private _actions: Actions;
 
     constructor() {
         this._resources = new Resources();
+        this._actions = new Actions(this);
+        this._job = new Job({
+            income: 0,
+            interest: 0,
+        });
 
         this.start();
 
@@ -29,8 +36,8 @@ export class Game {
         return this._job;
     }
 
-    public setJob(newJob: Job) {
-        this._job = newJob;
+    public get actions() {
+        return this._actions;
     }
 
     public start() {
@@ -43,8 +50,8 @@ export class Game {
         }
     }
 
-    private _worldUpdate(_delta: number) {
-        // TODO: world update logic
+    private _worldUpdate(delta: number) {
+        this.actions.startedActions.forEach(action => action.tick(delta));
     }
 
     private _update(delta: number) {

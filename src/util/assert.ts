@@ -5,7 +5,7 @@ class AssertError extends Error {
     }
 }
 
-export function assert(condition: boolean, message: string): asserts condition {
+export function assert(condition: boolean, message?: string): asserts condition {
     if (condition) {
         return;
     }

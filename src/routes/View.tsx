@@ -1,7 +1,7 @@
+import styled from '@emotion/styled';
 import { createContext } from 'react';
 
 import { Game } from '../models/Game';
-import styled from '../themed-components';
 import { Routes } from './Routes';
 
 const Content = styled.div`
