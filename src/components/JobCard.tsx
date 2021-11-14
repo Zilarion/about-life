@@ -6,11 +6,11 @@ import {
 } from '@material-ui/core';
 import { observer } from 'mobx-react-lite';
 
-import { Job } from '../models/Job';
+import { JobInstance } from '../models/JobModel';
 import { formatNumber } from '../util/formatNumber';
 
 interface JobCardProps {
-    job: Job | null;
+    job: JobInstance | null;
 }
 
 const ContentWrapper = styled.div`
