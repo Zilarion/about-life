@@ -6,11 +6,11 @@ import {
 } from '@material-ui/core';
 import { observer } from 'mobx-react-lite';
 
-import { Resources } from '../models/Resources';
+import { ResourcesInstance } from '../models/ResourcesModel';
 import { formatNumber } from '../util/formatNumber';
 
 interface ResourceCardProps {
-    resources: Resources;
+    resources: ResourcesInstance;
 }
 
 export const ResourceCard = observer(({

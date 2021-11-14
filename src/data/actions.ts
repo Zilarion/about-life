@@ -1,6 +1,6 @@
-import { ActionInputProps } from '../models/Action';
+import { ActionSchema } from '../schema/ActionSchema';
 
-export const actions: ActionInputProps[] = [
+export const actions: ActionSchema[] = [
     {
         name: 'Work',
         description: 'Go and make some $$$',
