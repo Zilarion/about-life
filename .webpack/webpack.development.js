@@ -15,7 +15,9 @@ const debug = {
         globalObject: '(typeof self !== \'undefined\' ? self : this)',
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
         compress: true,
         port: 9000,
         historyApiFallback: true,
